@@ -1,0 +1,24 @@
+p {
+    text-align: center;
+    margin: 30px;
+}
+
+.dropmy {
+    background-color: rgb(13,202,240);
+    color: white;
+}
+
+.dropmy:hover {
+    background-color: rgb(49,210,242);
+}
+
+.nav_button {
+    text-decoration: none;
+    color: rgb(13, 160, 240);
+    margin-bottom: 40px;
+    margin-left: 30px;
+}
+
+.drop_down_center{
+    text-align: center;
+}

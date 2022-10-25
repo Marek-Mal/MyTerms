@@ -1,0 +1,23 @@
+<ul class="nav justify-content-center">
+    <li *ngIf="token" class="nav-item">
+        <p class="nav-link others">Witaj: {{ getName() }}</p>
+    </li>
+    <li *ngIf="token" class="nav-item">
+        <a class="nav-link others" routerLink="Profile">Twój Profil</a>
+    </li>
+    <li *ngIf="!token" class="nav-item">
+        <a class="nav-link others" routerLink="Login">Zaloguj</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active MyTerms" routerLink="">MyTerms</a>
+    </li>
+    <li *ngIf="!token" class="nav-item">
+      <a class="nav-link others" routerLink="Register">Zarejejstruj</a>
+    </li>
+    <li *ngIf="token" class="nav-item">
+      <a class="nav-link others" routerLink="MyPosts">Moje Ogłoszenia</a>
+    </li>
+    <li *ngIf="token" class="nav-item">
+      <a (click)="deleteClick()" class="nav-link others logout">Wyloguj</a>
+    </li>
+</ul>

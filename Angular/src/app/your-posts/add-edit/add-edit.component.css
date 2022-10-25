@@ -1,0 +1,48 @@
+.col-sm-10 {
+    margin-bottom: 40px;
+}
+
+img {
+    width: 100%;
+}
+
+.dropdown {
+    float: right;
+    margin-bottom: 20px;
+}
+
+.CustomDropdownButtons button, input, textarea, select, option {
+    background-color: rgb(214, 214, 214);
+}
+
+p {
+    margin-left: 5px;
+}
+
+.main-modal {
+    height: 400px;
+}
+
+textarea {
+    resize: none;
+    width: 40%;
+    height: 100px;
+}
+
+.shorter {
+    width: 30px;
+}
+
+select {
+    width: 70%;
+}
+
+:host .alert-custom {
+    color: #99004d;
+    background-color: #f169b4;
+    border-color: #800040;
+}
+
+.wide {
+    width: 100%;
+}

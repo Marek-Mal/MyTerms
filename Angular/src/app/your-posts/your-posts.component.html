@@ -1,0 +1,85 @@
+<!-- Modal -->
+<ng-template #longContent let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Więcej Informacji</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <app-more-info [terms]="terms"></app-more-info>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Zamknij</button>
+    </div>
+</ng-template>
+
+<ng-template #longContentAE let-modal>
+  
+    <div class="modal-header">
+      <h4 class="modal-title">Więcej Informacji</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <app-add-edit [terms]="terms" [IsADD]="IsADD"
+      [is_sell_games]="is_sell_games"
+      [is_sell_acc]="is_sell_acc"
+      [is_boost]="is_boost"
+      [is_coach]="is_coach"
+      ></app-add-edit>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Zamknij</button>
+    </div>
+
+</ng-template>
+
+
+<div class="addButtonDIV">
+    <button (click)="Add(Your_Posts, longContentAE)" class="addButton btn btn-primary btn-lg" type="button">Dodaj Ogłoszenie</button>
+</div>
+
+
+<!-- All games posts display -->
+
+
+<table *ngIf="!is_empty" class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Tytuł Gry</th>
+      <th scope="col">Typ Ogłoszenia</th>
+      <th scope="col">Cena</th>
+      <th scope="col">Więcej Informacji</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let dataItem of Your_Posts">
+        <td>{{ dataItem.game_title }}</td>
+        <td>{{ dataItem.post_type }}</td>
+        <td>{{ dataItem.price | number }}</td>
+        <td>
+            <button type="button" class="btn btn-info" style="color:white;" (click)="moreInfoClick(dataItem, longContent)">Więcej Informacji</button>
+            <button type="button" class="btn btn-primary" (click)="Edit(dataItem, longContentAE)">Edytuj</button>
+            <button type="button" class="btn btn-danger" (click)="deleteClick(dataItem)">Usuń</button>
+        </td>
+    </tr>
+  </tbody>
+  <div class="d-flex justify-content-between p-2 margin">
+    <ngb-pagination
+      [collectionSize]="collectionSize"
+      [(page)]="page"
+      [pageSize]="pageSize"
+      (pageChange)="refreshTerms()"
+    >
+    </ngb-pagination>
+  </div>
+</table>
+
+<div *ngIf="is_empty">
+  <h1 class="empty" > <b><i>Pusto Tu. Dodaj Ogłoszenie</i></b> </h1>
+</div>
+
+
+
+<div class="rel">
+  <app-footer></app-footer>
+</div>

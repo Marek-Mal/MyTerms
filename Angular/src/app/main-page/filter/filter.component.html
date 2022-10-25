@@ -1,0 +1,41 @@
+<p>
+	<button
+        type="button"
+        class="btn btn-outline-primary ms-2 dropmy"
+        (click)="isCollapsed = ! isCollapsed"
+        [attr.aria-expanded]="!isCollapsed"
+        aria-controls="collapseExample"
+	>
+		Zobacz Filtry
+	</button>
+</p>
+
+<div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+	<div class="drop_down_center">
+		<button type="button" class="nav_button btn btn-link" [disabled]="posts_all" (click)="setallFalse()" (click)="posts_all = true">Wszystko</button>
+		<button type="button" class="nav_button btn btn-link" [disabled]="posts_games" (click)="setallFalse()" (click)="posts_games = true">Sprzedaż Gier</button>
+		<button type="button" class="nav_button btn btn-link" [disabled]="posts_acc_sell" (click)="setallFalse()" (click)="posts_acc_sell = true">Sprzedaż Kont</button>
+		<button type="button" class="nav_button btn btn-link" [disabled]="posts_coach" (click)="setallFalse()" (click)="posts_coach = true">Coach</button>
+		<button type="button" class="nav_button btn btn-link" [disabled]="posts_boost" (click)="setallFalse()" (click)="posts_boost = true">Boosting</button>
+	</div>
+</div>
+
+<ng-container *ngIf="posts_all">
+    <app-posts-mixed-all></app-posts-mixed-all>
+</ng-container>
+
+<ng-container *ngIf="posts_games">
+    <app-posts-games></app-posts-games>
+</ng-container>
+
+<ng-container *ngIf="posts_acc_sell">
+    <app-posts-acc-sell></app-posts-acc-sell>
+</ng-container>
+
+<ng-container *ngIf="posts_coach">
+    <app-posts-coach></app-posts-coach>
+</ng-container>
+
+<ng-container *ngIf="posts_boost">
+    <app-posts-boost></app-posts-boost>
+</ng-container>

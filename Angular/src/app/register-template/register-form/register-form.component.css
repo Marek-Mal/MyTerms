@@ -1,0 +1,19 @@
+form {
+    margin-left: 30%;
+    margin-top: 10px;
+}
+
+input {
+    width: 50%;
+    margin-bottom: 10px;
+    background-color: rgb(224, 224, 224);
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+button {
+    margin-top: 10px;
+    margin-bottom: 5%;
+}

@@ -1,0 +1,17 @@
+.MyTerms {
+    font-size: 30px;
+    color: rgb(34, 147, 253);
+    font-weight: 650;
+}
+
+.others {
+    margin-top: 14px;
+}
+
+li {
+    margin-left: 15px;
+}
+
+.logout {
+    cursor: pointer;
+}

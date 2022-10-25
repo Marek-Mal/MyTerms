@@ -1,0 +1,47 @@
+<!-- Modal -->
+<ng-template #longContent let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Więcej Informacji</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <app-more-info [terms]="terms"></app-more-info>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Zamknij</button>
+    </div>
+</ng-template>
+
+<!-- All games posts display -->
+
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Tytuł Gry</th>
+        <th scope="col">Typ Ogłoszenia</th>
+        <th scope="col">Cena</th>
+        <th scope="col">Więcej Informacji</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dataItem of Terms_Posts">
+        <td>{{ dataItem.game_title }}</td>
+        <td>{{ dataItem.post_type }}</td>
+        <td>{{ dataItem.price | number }}</td>
+        <td><button type="button" class="btn btn-info" style="color:white;" (click)="moreInfoClick(dataItem, longContent)">Więcej Informacji</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+<div class="d-flex justify-content-between p-2 margin">
+  <ngb-pagination
+    [collectionSize]="collectionSize"
+    [(page)]="page"
+    [pageSize]="pageSize"
+    (pageChange)="refreshTerms()"
+  >
+  </ngb-pagination>
+</div>
+
+

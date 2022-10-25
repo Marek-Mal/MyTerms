@@ -1,0 +1,178 @@
+<div class="form-froup row main-modal">
+      
+    <div *ngIf="IsADD" class="row dropdown">
+        <div class="col">
+            <div ngbDropdown class="d-inline-block">
+                <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+                    Wybierz Typ Ogłoszenia
+                </button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="CustomDropdownButtons">
+                    <button (click)="Sell_Games_Set_True()" ngbDropdownItem>Sprzedarz Gry</button>
+                    <button (click)="Sell_Acc_Set_True()" ngbDropdownItem>Sprzedarz Konta</button>
+                    <button (click)="Boost_Set_True()" ngbDropdownItem>Boosting</button>
+                    <button (click)="Coach_Set_True()" ngbDropdownItem>Coach</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div *ngIf="is_sell_games || is_sell_acc || is_boost || is_coach || !IsADD" class="col-sm-10">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Tytuł Gry</span>
+            </div>
+            <input [(ngModel)]="game_title" maxlength="255" name="title" ng-model="title" type="text" class="form-control">
+        </div>
+        <div *ngIf="game_title.length <= 0">
+            <p>
+                <ngb-alert type="custom" [dismissible]="false"><strong>Tytuł Gry</strong> Jest Wymagany!</ngb-alert>
+            </p>            
+        </div>
+    </div>
+
+    <div *ngIf="is_sell_games || is_sell_acc || is_boost || is_coach || !IsADD" class="col-sm-10">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Cena (PLN)</span>
+            </div>
+            <input [(ngModel)]="price" type="number" class="form-control shorter">
+        </div>
+        <div *ngIf="price <= 0">
+            <p>
+                <ngb-alert type="custom" [dismissible]="false"><strong>Cena</strong> Jest Wymagana Oraz Nie może Być Liczbą Ujemną!</ngb-alert>
+            </p>            
+        </div>
+    </div>
+
+    
+    <div *ngIf="is_sell_games || is_sell_acc || !IsADD && (is_sell_acc || is_sell_games)" class="col-sm-10">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Gatunek</span>
+            </div>
+            <input [(ngModel)]="game_category" maxlength="100" type="text" class="form-control shorter">
+        </div>
+        <div *ngIf="game_category == ''">
+            <p>
+                <ngb-alert type="custom" [dismissible]="false"><strong>Garunek</strong> Jest Wymagany</ngb-alert>
+            </p>            
+        </div>
+    </div>
+
+    
+    <div *ngIf="is_sell_acc || !IsADD && (is_sell_acc)" class="col-sm-10">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Grane Od</span>
+            </div>
+            <input [(ngModel)]="played_for" type="date" class="form-control shorter">
+        </div>
+        <div *ngIf="played_for.length <=0">
+            <p>
+                <ngb-alert type="custom" [dismissible]="false"><strong>Pole Grane Od</strong> Jest Wymagane</ngb-alert>
+            </p>            
+        </div>
+    </div>
+
+    
+    <div *ngIf="is_sell_acc || !IsADD && (is_sell_acc)" class="col-sm-10">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Skiny</span>
+            </div>
+            <input [(ngModel)]="skins" type="number" class="form-control shorter">
+        </div>
+        <div *ngIf="skins <= 0">
+            <p>
+                <ngb-alert type="custom" [dismissible]="false"><strong>Skiny</strong> Są Wymanagne Oraz Nie Mogą Być Liczbą Ujemną!</ngb-alert>
+            </p>            
+        </div>
+    </div>
+
+    
+    <div *ngIf="is_sell_acc || !IsADD && (is_sell_acc)" class="col-sm-10">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Level</span>
+            </div>
+            <input [(ngModel)]="level" type="number" class="form-control shorter">
+        </div>
+        <div *ngIf="level <= 0">
+            <p>
+                <ngb-alert type="custom" [dismissible]="false"><strong>Level</strong> Jest Wymagany Oraz Nie Mogą Być Liczbą Ujemną!</ngb-alert>
+            </p>            
+        </div>
+    </div>
+
+    
+    <div *ngIf="is_sell_games || is_sell_acc || is_boost || is_coach || !IsADD" class="col-sm-10">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Opis</span>
+            </div>
+            <textarea [(ngModel)]="description" minlength="50" class="form-control"></textarea>
+        </div>
+        <div *ngIf="description == '' || description.length < 50">
+            <p>
+                <ngb-alert type="custom" [dismissible]="false"><strong>Opis</strong> Jest Wymagany Musi Mieć Conajmniej 50 znaków</ngb-alert>
+            </p>            
+        </div>
+    </div>
+
+    
+    <div *ngIf="is_sell_games || is_sell_acc || !IsADD && (is_sell_acc || is_sell_games)" class="col-sm-10">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="inputGroupSelect01">Platforma</label>
+            </div>
+            <select class="form-select form-select-sm" id="inputGroupSelect01" [(ngModel)]="platform">
+              <option value="PC">PC</option>
+              <option value="PS5">PS5</option>
+              <option value="XBOX">XBOX</option>
+            </select>
+        </div>
+    </div>
+    
+    <div *ngIf="is_sell_games || is_sell_acc || !IsADD && (is_sell_acc || is_sell_games)" class="col-sm-10">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Producent</span>
+            </div>
+            <input [(ngModel)]="producent" maxlength="150" type="text" class="form-control">
+        </div>
+        <div *ngIf="producent == ''">
+            <p>
+                <ngb-alert type="custom" [dismissible]="false"><strong>Producent</strong> Jest Wymagany</ngb-alert>
+            </p>            
+        </div>
+    </div>
+    
+    <div *ngIf="is_sell_acc || !IsADD && (is_sell_acc)" class="col-sm-10">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Ranga</span>
+            </div>
+            <input [(ngModel)]="rank" maxlength="100" type="text" class="form-control shorter">
+        </div>
+        <div *ngIf="rank == ''">
+            <p>
+                <ngb-alert type="custom" [dismissible]="false"><strong>Ranga</strong> Jest Wymanaga</ngb-alert>
+            </p>            
+        </div>
+    </div>
+
+    <div *ngIf="is_sell_games || is_sell_acc || is_boost || is_coach || !IsADD" class="col-sm-10">
+        <div class="custom-file">
+            <label class="custom-file-label" for="customFile">Wybierz Zdjęcie</label><br>
+            <input (change)="onChange($event)" [(ngModel)]="photo" type="file" class="custom-file-input" id="customFile">
+          </div>
+    </div>
+
+    <div class="modal-footer">
+        <button *ngIf="!IsADD" type="button" class="btn btn-success wide" (click)="Edit_Terms()">Zmień</button>
+        
+        <button *ngIf="IsADD && (is_sell_games || is_sell_acc || is_boost || is_coach)" type="button" class="btn btn-info wide" (click)="Add_Terms()" style="color:white">Dodaj</button>
+    </div>
+
+</div>

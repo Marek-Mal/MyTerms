@@ -1,0 +1,22 @@
+<form class="formx">
+    <div class="mb-3">
+        <label for="username" class="form-label">Imię</label>
+        <input required [(ngModel)]="UserForm.username" id="username" name="username" type="text" class="form-control" placeholder="Wpisz Swoje Imię">
+    </div>
+    <div class="mb-3">
+        <label for="surname" class="form-label">Nazwisko</label>
+        <input required id="surname" [(ngModel)]="UserForm.surname" name="surname" type="text" class="form-control" placeholder="Wpisz Swoje Nazwisko">
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input required [(ngModel)]="UserForm.email" name="email" type="email" class="form-control" id="email"placeholder="Wpisz Swój Email" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Hasło</label>
+        <input required [(ngModel)]="UserForm.password" id="password" type="password" name="password" class="form-control" placeholder="Wpisz Swoje Hasło" id="password">
+    </div>
+    <button (click)="Edit()" class="btn btn-primary">Edytuj Konto</button>
+    <button (click)="Delete()" class="btn btn-danger">Usuń Konto</button>
+</form>
+
+<app-footer></app-footer>

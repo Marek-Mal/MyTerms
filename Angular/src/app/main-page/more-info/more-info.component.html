@@ -1,0 +1,61 @@
+<div class="form-froup row">
+        
+    <div class="col-sm-10">
+        <p>Tytuł Gry: {{terms.game_title}} </p>
+    </div>
+
+    <div class="col-sm-10">
+        <p>Cena: {{terms.price}} </p>
+    </div>
+
+    
+    <div *ngIf="terms.game_category" class="col-sm-10">
+        <p>Kategoria: {{terms.game_category}} </p>
+    </div>
+
+    
+    <div *ngIf="terms.player_for" class="col-sm-10">
+        <p>Grane Od: {{terms.player_for}} </p>
+    </div>
+
+    
+    <div *ngIf="terms.skins" class="col-sm-10">
+        <p>Skiny: {{terms.skins}} </p>
+    </div>
+
+    
+    <div *ngIf="terms.level" class="col-sm-10">
+        <p>Level: {{terms.level}} </p>
+    </div>
+
+    
+    <div class="col-sm-10">
+        <p>Opis Sprzedawcy: {{terms.description}} </p>
+    </div>
+
+    
+    <div *ngIf="terms.platform" class="col-sm-10">
+        <p>Platforma: {{terms.platform}} </p>
+    </div>
+    
+    <div *ngIf="terms.producent" class="col-sm-10">
+        <p>Producent: {{terms.producent}} </p>
+    </div>
+    
+    <div *ngIf="terms.rank" class="col-sm-10">
+        <p>Ranga: {{terms.rank}} </p>
+    </div>
+    
+    <div *ngIf="terms.date_added" class="col-sm-10">
+        <p>Data Dodania: {{terms.date_added}} </p>
+    </div>
+    <div class="col-sm-10">
+        <p>Zdjęcie: <img class="photo" src="{{ terms.photo }}"> </p>
+    </div>
+    <div class="col-sm-10">
+        <p><b>O Sprzedawcy:</b></p>
+        <p>Imię: {{ terms.terms_user.username }}</p>
+        <p>Nazwisko: {{ terms.terms_user.surname }}</p>
+        <p>Email Kontaktowy: {{ terms.terms_user.email }}</p>
+    </div>
+</div>

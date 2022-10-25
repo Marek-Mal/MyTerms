@@ -1,0 +1,36 @@
+button {
+    margin-left: 10px;
+}
+
+table {
+    text-align: center;
+}
+
+.margin {
+    margin-left: 3%;
+}
+
+.addButtonDIV {
+    margin-bottom: 60px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.addButton {
+    width: 90%;
+    margin-right: 2%;
+}
+
+.empty {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 60px;
+    color: grey;
+}
+
+app-footer {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+}
