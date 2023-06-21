@@ -2,7 +2,7 @@ from django.db import models
 from .UserManager.UserManager import UserManager_Terms
 from django.contrib.auth.models import AbstractBaseUser
 
-
+# User Database Model
 class MyTermsUser(AbstractBaseUser):
 
     terms_user_id = models.AutoField(primary_key=True, unique=True)
@@ -29,7 +29,8 @@ class MyTermsUser(AbstractBaseUser):
 
     class Meta:
         db_table = "myterms_user"
-
+        
+# Model for Selling games
 class Sell_Games(models.Model):
 
     platform_choice = (
@@ -56,7 +57,8 @@ class Sell_Games(models.Model):
 
     def __str__(self):
         return self.game_title
-
+        
+#Model For Coaching Category
 class Boosting(models.Model):
 
     terms_id = models.AutoField(primary_key=True, unique=True)
@@ -93,7 +95,7 @@ class Coach(models.Model):
     def __str__(self):
         return self.game_title
 
-
+# Model For selling accounts
 class Sell_Account(models.Model):
 
     platform_choice = (
