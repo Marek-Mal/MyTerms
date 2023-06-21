@@ -9,11 +9,13 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 })
 export class MainviewComponent implements OnInit {
 
+  // Downloading Images from server
   images = [1, 2, 3].map(
     (n) => `http://127.0.0.1:8000/TermsMedia/background${n}.jpg`
   );
 
   constructor(private service:SharedserviceService, config: NgbCarouselConfig) {
+    // swiping images parameters
     config.interval = 5000;
     config.wrap = true;
     config.keyboard = false;
