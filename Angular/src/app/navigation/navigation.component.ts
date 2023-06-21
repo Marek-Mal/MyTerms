@@ -15,6 +15,7 @@ export class NavigationComponent implements OnInit {
   terms_user:any
 
   ngOnInit(): void {
+    // downloading user token and username
     this.router.events.subscribe(event => {
       if (event.constructor.name === "NavigationEnd") {
         this.token= localStorage.getItem('token')
@@ -23,21 +24,21 @@ export class NavigationComponent implements OnInit {
     })
   }
 
-
+ // getting username
   getName() {
     return this.terms_user.username
   }
-
+  // go to main page
   navigate() {
     this.router.navigateByUrl('');
     this.ngOnInit()
   }
-
+ // user profile
   navigate_user() {
     this.router.navigateByUrl('Profile');
     this.ngOnInit()
   }
-
+ // logout
   deleteClick(){
     if(confirm('Napewno Chcesz Się Wylogować?')){
       localStorage.removeItem('token')
