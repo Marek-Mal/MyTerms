@@ -14,7 +14,7 @@ export class ProfileTemplateComponent implements OnInit {
   UserForm:any
 
   constructor(private service: SharedserviceService, private navref: NavigationComponent) { }
-
+ // getting user info
   ngOnInit(): void {
     this.UserForm = {
       username: '',
@@ -34,7 +34,7 @@ export class ProfileTemplateComponent implements OnInit {
     })
 
   }
-
+ // edditing user 
   Edit() {
     if (this.UserForm.password != '') {
         this.service.UserUpdate(this.UserForm).subscribe((data) => {
@@ -52,7 +52,7 @@ export class ProfileTemplateComponent implements OnInit {
       alert('Podaj Hasło')
     }
   }
-
+ // delete user
   Delete() {
     if (this.UserForm.password != '') {
       this.service.UserDelete(this.UserForm).subscribe((data) => {
