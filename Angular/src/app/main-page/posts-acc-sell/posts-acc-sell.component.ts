@@ -29,6 +29,7 @@ export class PostsAccSellComponent implements OnInit {
     
   }
 
+  // gain subscribed date from server to show newest results 
   refreshTerms() {
     this.service.get_sell_acc().subscribe(data => {
       this.collectionSize = data.results.length;
@@ -38,7 +39,8 @@ export class PostsAccSellComponent implements OnInit {
         );
     })
   }
-  
+
+  // more info modal
   moreInfoClick(item:any, longContent:any) {
     this.terms=item;
     this.modalService.open(longContent, { scrollable: true });
