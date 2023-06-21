@@ -22,6 +22,7 @@ export class RegisterFormComponent implements OnInit {
     }
   }
 
+  // createing account
   registerUser() {
     if (this.register.username && this.register.surname && this.register.password&& this.register.email) {
       this.service.createUser(this.register).subscribe(data => {
