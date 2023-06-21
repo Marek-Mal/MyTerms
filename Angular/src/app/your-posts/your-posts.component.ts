@@ -34,7 +34,7 @@ export class YourPostsComponent implements OnInit {
   ngOnInit(): void {
     this.refreshTerms()
   }
-  
+    // gain subscribed date from server to show newest results 
   refreshTerms() {
     this.service.sort().subscribe(data => {
       if (data.length <= 0) {
@@ -49,12 +49,13 @@ export class YourPostsComponent implements OnInit {
       }
     })
   }
-  
+  // open modal more info
   moreInfoClick(item:any, longContent:any) {
     this.terms=item;
     this.modalService.open(longContent, { scrollable: true, size: "lg" });
   }
-  
+
+  // add post to database
   Add(item:any, longContent:any) {
     this.terms=item;
     this.modalService.open(longContent, { scrollable: true, size: "lg" });
@@ -65,6 +66,7 @@ export class YourPostsComponent implements OnInit {
     this.is_coach = false
   }
 
+  // edit post from database
   Edit(item:any, longContent:any) {
     this.terms=item;
     this.modalService.open(longContent, { scrollable: true, size: "lg" });
@@ -98,6 +100,7 @@ export class YourPostsComponent implements OnInit {
     }
   }
 
+  // delete post from database
   deleteClick(item:any) {
     if (confirm(`Jesteś pewien że chcesz usunąć ${item.game_title}?`)) {
       if (item.post_type == "Sprzedaż Gry") {
