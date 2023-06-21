@@ -28,7 +28,7 @@ export class PostsGamesComponent implements OnInit {
     this.refreshTerms()
     
   }
-
+  // gain subscribed date from server to show newest results 
   refreshTerms() {
     this.service.get_sell_games().subscribe(data => {
       this.collectionSize = data.results.length;
@@ -38,7 +38,7 @@ export class PostsGamesComponent implements OnInit {
         );
     })
   }
-  
+   // modal more info
   moreInfoClick(item:any, longContent:any) {
     this.terms=item;
     this.modalService.open(longContent, { scrollable: true, size: "lg" });
