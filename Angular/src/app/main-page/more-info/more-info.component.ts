@@ -14,11 +14,13 @@ export class MoreInfoComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.terms.photo) {
-      if (this.terms.photo.startsWith('http') || this.terms.photo.startsWith('https')) {
-      }
-      else {
+      // Only avalible after posting server on domain
+      // if (this.terms.photo.startsWith('http') || this.terms.photo.startsWith('https')) {
+      // }
+      // else {
+      // downloading photo from server and asigning it to variable
         this.terms.photo = this.service.APIUrl+this.terms.photo
-      }
+      // }
     }
   }
 
