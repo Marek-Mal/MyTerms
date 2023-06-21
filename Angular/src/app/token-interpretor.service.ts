@@ -15,6 +15,7 @@ export class TokenInterpretorService implements HttpInterceptor {
 
   constructor(public service: SharedserviceService) { }
 
+  // authorize user token to sent it in headers for user 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> { 
     request = request.clone({
       setHeaders: {
