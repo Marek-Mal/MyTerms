@@ -1,3 +1,5 @@
+// api url's 
+
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs'
@@ -105,10 +107,12 @@ export class SharedserviceService {
     return this.http.delete(this.APIUrl + '/delete_user/' + val.terms_user_id, val)
   }
 
+  // get user info
   GetUser(): Observable<any> {
     return this.http.get(this.APIUrl + '/show_current_user/')
   }
 
+  // get user token
   public getToken(): any {
     if (localStorage.getItem('token') == null || localStorage.getItem('token') == undefined) {
       return 
