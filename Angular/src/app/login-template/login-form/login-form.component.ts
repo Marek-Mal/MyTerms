@@ -21,7 +21,8 @@ export class LoginFormComponent implements OnInit {
   }
 
   loginUser() {
-    if (this.login.password && this.login.email != '') {
+    if (this.login.password && this.login.email != '') { // Validate if password and email are empty fields
+      // subscribe and save data to localstorage
       this.service.UserMethodLogin(this.login).subscribe(data => {
         let val = {
           "username": data.user.username,
@@ -30,6 +31,7 @@ export class LoginFormComponent implements OnInit {
         }
         localStorage.setItem('token', data.token)
         localStorage.setItem('user', JSON.stringify(val))
+        // go to main page
         this.navref.navigate()
       })
     }
