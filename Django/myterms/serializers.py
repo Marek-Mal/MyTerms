@@ -17,10 +17,14 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         )
         extra_kwargs = {'password': {'write_only':True, 'required': True}}
 
+    # Create User
+    
     def create(self, validated_data):
         user = MyTermsUser.objects.create_user(validated_data['email'], validated_data['username'], validated_data['surname'], validated_data['password'])
         return user
 
+    # Update User
+        
     def update(self, instance, validated_data):
         if (instance.check_password(validated_data['password'])):
             instance.username = validated_data['username']
@@ -33,8 +37,8 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         else:
             raise exceptions.AuthenticationFailed(_('Złe Hasło'))
 
-    def delete(self, instance, validated_data):
-        print("ITS DELETE"*10)
+    # def delete(self, instance, validated_data):
+        
 
 class Sell_Games_Serializer(serializers.ModelSerializer):
 
@@ -116,14 +120,3 @@ class Coach_Serializer(serializers.ModelSerializer):
             "terms_user"
         )
 
-
-# "terms_id",
-# "game_title",
-# "game_category",
-# "price",
-# "description",
-# "platform",
-# "producent",
-# "date_added",
-# "photo",
-# "user",
