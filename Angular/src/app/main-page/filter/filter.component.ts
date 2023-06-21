@@ -1,3 +1,5 @@
+// Filltering based on chosen type. If you chose Posts_all you get everything mixed in sorted by date added. If you chose any other option you got specyficly posts from this category
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
